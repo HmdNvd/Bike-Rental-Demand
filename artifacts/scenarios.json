@@ -1,0 +1,65 @@
+[
+  {
+    "id": "morning",
+    "title": "Morning commute",
+    "description": "Clear skies, a weekday start.",
+    "inputs": {
+      "date": "2012-08-09",
+      "hour": 8,
+      "season": 3,
+      "weather": 1,
+      "temperature_c": 25.839999999999996,
+      "humidity": 74.0,
+      "wind_kmh": 7.0015,
+      "holiday": false,
+      "baseline_year": 2012
+    },
+    "actual": 698,
+    "prediction": 499.08060245696925,
+    "source_row": 13947,
+    "source_instant": 13948,
+    "split": "held-out test set"
+  },
+  {
+    "id": "rain",
+    "title": "Rainy afternoon",
+    "description": "Light rain on a working day.",
+    "inputs": {
+      "date": "2012-09-18",
+      "hour": 15,
+      "season": 3,
+      "weather": 3,
+      "temperature_c": 20.2,
+      "humidity": 88.0,
+      "wind_kmh": 16.997899999999998,
+      "holiday": false,
+      "baseline_year": 2012
+    },
+    "actual": 36,
+    "prediction": 204.29991184618126,
+    "source_row": 14914,
+    "source_instant": 14915,
+    "split": "held-out test set"
+  },
+  {
+    "id": "weekend",
+    "title": "Weekend evening",
+    "description": "An easy end to a clear weekend.",
+    "inputs": {
+      "date": "2012-08-12",
+      "hour": 19,
+      "season": 3,
+      "weather": 1,
+      "temperature_c": 26.78,
+      "humidity": 40.0,
+      "wind_kmh": 8.9981,
+      "holiday": false,
+      "baseline_year": 2012
+    },
+    "actual": 465,
+    "prediction": 281.9258676483854,
+    "source_row": 14030,
+    "source_instant": 14031,
+    "split": "held-out test set"
+  }
+]

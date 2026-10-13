@@ -1,0 +1,452 @@
+{
+  "scenarios": [
+    {
+      "name": "Morning commute",
+      "prediction": 499.08060245696925,
+      "rentals": 499,
+      "inputs": {
+        "date": "2012-08-09",
+        "hour": 8,
+        "season": 3,
+        "weather": 1,
+        "temperature_c": 25.839999999999996,
+        "humidity": 74,
+        "wind_kmh": 7.0015,
+        "holiday": false,
+        "baseline_year": 2012
+      },
+      "profile": [
+        {
+          "hour": 0,
+          "prediction": 164.73108847565285,
+          "rentals": 165
+        },
+        {
+          "hour": 1,
+          "prediction": 126.89041421074793,
+          "rentals": 127
+        },
+        {
+          "hour": 2,
+          "prediction": 119.15404122009377,
+          "rentals": 119
+        },
+        {
+          "hour": 3,
+          "prediction": 108.60748406064843,
+          "rentals": 109
+        },
+        {
+          "hour": 4,
+          "prediction": 105.54118898016537,
+          "rentals": 106
+        },
+        {
+          "hour": 5,
+          "prediction": 121.5959328467444,
+          "rentals": 122
+        },
+        {
+          "hour": 6,
+          "prediction": 174.56295665155582,
+          "rentals": 175
+        },
+        {
+          "hour": 7,
+          "prediction": 372.58235784574447,
+          "rentals": 373
+        },
+        {
+          "hour": 8,
+          "prediction": 499.08060245696925,
+          "rentals": 499
+        },
+        {
+          "hour": 9,
+          "prediction": 368.25242916997547,
+          "rentals": 368
+        },
+        {
+          "hour": 10,
+          "prediction": 241.91206242365487,
+          "rentals": 242
+        },
+        {
+          "hour": 11,
+          "prediction": 263.9050281210299,
+          "rentals": 264
+        },
+        {
+          "hour": 12,
+          "prediction": 298.451581282937,
+          "rentals": 298
+        },
+        {
+          "hour": 13,
+          "prediction": 295.59152481964384,
+          "rentals": 296
+        },
+        {
+          "hour": 14,
+          "prediction": 281.7596570185701,
+          "rentals": 282
+        },
+        {
+          "hour": 15,
+          "prediction": 288.7656175031592,
+          "rentals": 289
+        },
+        {
+          "hour": 16,
+          "prediction": 343.73755767728414,
+          "rentals": 344
+        },
+        {
+          "hour": 17,
+          "prediction": 562.6224720931012,
+          "rentals": 563
+        },
+        {
+          "hour": 18,
+          "prediction": 536.7011252332317,
+          "rentals": 537
+        },
+        {
+          "hour": 19,
+          "prediction": 439.5261698329807,
+          "rentals": 440
+        },
+        {
+          "hour": 20,
+          "prediction": 290.27860189146986,
+          "rentals": 290
+        },
+        {
+          "hour": 21,
+          "prediction": 245.6593950291381,
+          "rentals": 246
+        },
+        {
+          "hour": 22,
+          "prediction": 210.96703127698407,
+          "rentals": 211
+        },
+        {
+          "hour": 23,
+          "prediction": 173.42460557262555,
+          "rentals": 173
+        }
+      ],
+      "peak_hour": 17,
+      "workingday": true,
+      "warnings": [],
+      "comparison": "Held-out observation 698 rentals\nAbsolute error 198.9"
+    },
+    {
+      "name": "Rainy afternoon",
+      "prediction": 204.29991184618126,
+      "rentals": 204,
+      "inputs": {
+        "date": "2012-09-18",
+        "hour": 15,
+        "season": 3,
+        "weather": 3,
+        "temperature_c": 20.2,
+        "humidity": 88,
+        "wind_kmh": 16.997899999999998,
+        "holiday": false,
+        "baseline_year": 2012
+      },
+      "profile": [
+        {
+          "hour": 0,
+          "prediction": 80.26538281867496,
+          "rentals": 80
+        },
+        {
+          "hour": 1,
+          "prediction": 42.42470855377003,
+          "rentals": 42
+        },
+        {
+          "hour": 2,
+          "prediction": 34.68833556311589,
+          "rentals": 35
+        },
+        {
+          "hour": 3,
+          "prediction": 24.14177840367053,
+          "rentals": 24
+        },
+        {
+          "hour": 4,
+          "prediction": 21.07548332318747,
+          "rentals": 21
+        },
+        {
+          "hour": 5,
+          "prediction": 37.13022718976652,
+          "rentals": 37
+        },
+        {
+          "hour": 6,
+          "prediction": 90.09725099457793,
+          "rentals": 90
+        },
+        {
+          "hour": 7,
+          "prediction": 288.1166521887666,
+          "rentals": 288
+        },
+        {
+          "hour": 8,
+          "prediction": 414.61489679999136,
+          "rentals": 415
+        },
+        {
+          "hour": 9,
+          "prediction": 283.7867235129976,
+          "rentals": 284
+        },
+        {
+          "hour": 10,
+          "prediction": 157.44635676667698,
+          "rentals": 157
+        },
+        {
+          "hour": 11,
+          "prediction": 179.43932246405197,
+          "rentals": 179
+        },
+        {
+          "hour": 12,
+          "prediction": 213.98587562595907,
+          "rentals": 214
+        },
+        {
+          "hour": 13,
+          "prediction": 211.12581916266595,
+          "rentals": 211
+        },
+        {
+          "hour": 14,
+          "prediction": 197.29395136159218,
+          "rentals": 197
+        },
+        {
+          "hour": 15,
+          "prediction": 204.29991184618126,
+          "rentals": 204
+        },
+        {
+          "hour": 16,
+          "prediction": 259.27185202030626,
+          "rentals": 259
+        },
+        {
+          "hour": 17,
+          "prediction": 478.15676643612335,
+          "rentals": 478
+        },
+        {
+          "hour": 18,
+          "prediction": 452.2354195762538,
+          "rentals": 452
+        },
+        {
+          "hour": 19,
+          "prediction": 355.0604641760027,
+          "rentals": 355
+        },
+        {
+          "hour": 20,
+          "prediction": 205.81289623449197,
+          "rentals": 206
+        },
+        {
+          "hour": 21,
+          "prediction": 161.1936893721602,
+          "rentals": 161
+        },
+        {
+          "hour": 22,
+          "prediction": 126.50132562000618,
+          "rentals": 127
+        },
+        {
+          "hour": 23,
+          "prediction": 88.95889991564766,
+          "rentals": 89
+        }
+      ],
+      "peak_hour": 17,
+      "workingday": true,
+      "warnings": [],
+      "comparison": "Held-out observation 36 rentals\nAbsolute error 168.3"
+    },
+    {
+      "name": "Weekend evening",
+      "prediction": 281.9258676483854,
+      "rentals": 282,
+      "inputs": {
+        "date": "2012-08-12",
+        "hour": 19,
+        "season": 3,
+        "weather": 1,
+        "temperature_c": 26.78,
+        "humidity": 40,
+        "wind_kmh": 8.9981,
+        "holiday": false,
+        "baseline_year": 2012
+      },
+      "profile": [
+        {
+          "hour": 0,
+          "prediction": 242.18328430396906,
+          "rentals": 242
+        },
+        {
+          "hour": 1,
+          "prediction": 204.3426100390641,
+          "rentals": 204
+        },
+        {
+          "hour": 2,
+          "prediction": 196.60623704840998,
+          "rentals": 197
+        },
+        {
+          "hour": 3,
+          "prediction": 186.0596798889646,
+          "rentals": 186
+        },
+        {
+          "hour": 4,
+          "prediction": 182.99338480848158,
+          "rentals": 183
+        },
+        {
+          "hour": 5,
+          "prediction": 199.0481286750606,
+          "rentals": 199
+        },
+        {
+          "hour": 6,
+          "prediction": 252.01515247987203,
+          "rentals": 252
+        },
+        {
+          "hour": 7,
+          "prediction": 214.9820556611492,
+          "rentals": 215
+        },
+        {
+          "hour": 8,
+          "prediction": 341.48030027237394,
+          "rentals": 341
+        },
+        {
+          "hour": 9,
+          "prediction": 210.65212698538025,
+          "rentals": 211
+        },
+        {
+          "hour": 10,
+          "prediction": 319.36425825197114,
+          "rentals": 319
+        },
+        {
+          "hour": 11,
+          "prediction": 341.3572239493461,
+          "rentals": 341
+        },
+        {
+          "hour": 12,
+          "prediction": 375.90377711125313,
+          "rentals": 376
+        },
+        {
+          "hour": 13,
+          "prediction": 373.0437206479601,
+          "rentals": 373
+        },
+        {
+          "hour": 14,
+          "prediction": 359.21185284688625,
+          "rentals": 359
+        },
+        {
+          "hour": 15,
+          "prediction": 366.2178133314753,
+          "rentals": 366
+        },
+        {
+          "hour": 16,
+          "prediction": 421.18975350560027,
+          "rentals": 421
+        },
+        {
+          "hour": 17,
+          "prediction": 405.02216990850593,
+          "rentals": 405
+        },
+        {
+          "hour": 18,
+          "prediction": 379.10082304863636,
+          "rentals": 379
+        },
+        {
+          "hour": 19,
+          "prediction": 281.9258676483854,
+          "rentals": 282
+        },
+        {
+          "hour": 20,
+          "prediction": 367.7307977197861,
+          "rentals": 368
+        },
+        {
+          "hour": 21,
+          "prediction": 323.1115908574543,
+          "rentals": 323
+        },
+        {
+          "hour": 22,
+          "prediction": 288.41922710530025,
+          "rentals": 288
+        },
+        {
+          "hour": 23,
+          "prediction": 250.87680140094176,
+          "rentals": 251
+        }
+      ],
+      "peak_hour": 16,
+      "workingday": false,
+      "warnings": [],
+      "comparison": "Held-out observation 465 rentals\nAbsolute error 183.1"
+    }
+  ],
+  "checks": [
+    "Page identity",
+    "Nonblank app",
+    "No framework overlay",
+    "No unexpected console errors",
+    "Three real held-out predictions",
+    "CSV with 24 hours",
+    "Edited inputs marked stale",
+    "Holiday handling",
+    "Rare weather warning",
+    "Historical baseline warning",
+    "Accessible model dialog",
+    "Service failure and recovery",
+    "Mobile no overflow",
+    "Keyboard slider",
+    "24-hour data table"
+  ],
+  "browser": "Playwright Chromium",
+  "viewports": [
+    "1440×1000",
+    "390×844"
+  ]
+}

@@ -1,0 +1,1 @@
+"""Spoke model serving application."""
