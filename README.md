@@ -161,7 +161,7 @@ docker build -t spoke .
 docker run --rm -p 8000:8000 spoke
 ```
 
-The container serves the React build and API on the same origin, runs as a non-root user, and includes the saved model. It accepts the host's `PORT` environment variable. Any container host can use this Dockerfile; route public traffic to that port and use `/api/health` as the health check. No API key or database is required. Public hosting has not been provisioned, and Docker execution is not part of the local verification.
+The container serves the React build and API on the same origin, runs as a non-root user, and includes the saved model. It accepts the host's `PORT` environment variable. Any container host can use this Dockerfile; route public traffic to that port and use `/api/health` as the health check. No API key or database is required. The production image passed [Linux build and runtime verification on GitHub Actions](https://github.com/HmdNvd/Bike-Rental-Demand/actions/runs/38612696294), including all six model/API tests and a known prediction. See the [Phase 8 status](submission/PHASE_8.md) for public hosting progress.
 
 ## Submission
 

@@ -1,0 +1,10 @@
+[
+  {
+    "id": 38612696294,
+    "name": "Verify model and Linux deployment",
+    "status": "completed",
+    "conclusion": "success",
+    "commit": "29217814c624c63077906666944a93de01cccca6",
+    "url": "https://github.com/HmdNvd/Bike-Rental-Demand/actions/runs/38612696294"
+  }
+]

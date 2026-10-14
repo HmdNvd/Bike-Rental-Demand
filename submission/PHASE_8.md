@@ -10,6 +10,10 @@
 - Hosting: [Render deployment guide](../docs/DEPLOYMENT.md), `render.yaml`, production `Dockerfile`.
 - Linux verification workflow: `.github/workflows/verify.yml`.
 
+## Deployment package verification
+
+Commit `29217814c624c63077906666944a93de01cccca6` passed the [GitHub Actions Linux verification run](https://github.com/HmdNvd/Bike-Rental-Demand/actions/runs/38612696294): production Docker image build, all six model/API tests inside the image, service startup, frontend serving, health and a known inference returning 524 rounded rentals. This verifies the Linux deployment package; it does not by itself establish a public hosted service.
+
 ## Current live-deployment status
 
 **Pending account setup and an actual successful deployment.** No public demo URL or final deployed prediction screenshot has been verified yet. This status will be updated after the account owner completes Render sign-in/authorization and the service builds and passes live acceptance checks.

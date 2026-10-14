@@ -2,12 +2,14 @@
 
 Goal: publish complete, reproducible ML documentation and a working public prediction app, then capture screenshot evidence from that deployed app.
 
-- [ ] Reproduce descriptive EDA findings and export legible figures and evaluation data with scripts/analyze_project.py. Keep the original notebook intact.
-- [ ] Write docs/PROJECT_REPORT.md covering the problem, dataset, quality checks, preprocessing, EDA, both model approaches, chronological training, evaluation, predictions, limitations, reproduction and deployment.
-- [ ] Improve the GitHub README with app preview, report links and portfolio summary; retain technical setup instructions.
-- [ ] Add Render deployment configuration and a GitHub Actions Linux container verification workflow. Test API feature parity and production container startup.
-- [ ] Commit and push the documentation/configuration. Inspect the actual GitHub Actions result and repair any build or runtime failures.
+- [x] Reproduce descriptive EDA findings and export legible figures and evaluation data with scripts/analyze_project.py. Keep the original notebook intact.
+- [x] Write docs/PROJECT_REPORT.md covering the problem, dataset, quality checks, preprocessing, EDA, both model approaches, chronological training, evaluation, predictions, limitations, reproduction and deployment.
+- [x] Improve the GitHub README with app preview, report links and portfolio summary; retain technical setup instructions.
+- [x] Add Render deployment configuration and a GitHub Actions Linux container verification workflow. Test API feature parity and production container startup.
+- [x] Commit and push the documentation/configuration. Inspect the actual GitHub Actions result and repair any build or runtime failures.
 - [ ] Connect the private repository to the user's Render account and deploy a free Docker web service. The user handles account creation and authorization prompts. No paid plan is authorized.
 - [ ] Test the live public URL, capture the final prediction screenshot with visible URL and inputs/output, and write submission/PHASE_8.md with verified links and status.
 
 Execution: proceed step by step in this chat under the user's authorization. Publishing this app is explicitly requested; changing GitHub repository visibility is not required. Never label local screenshots as live deployment evidence.
+
+Verified: commit `29217814c624c63077906666944a93de01cccca6` passed [Linux Docker build, six model/API tests, container startup, health, frontend and known numerical prediction](https://github.com/HmdNvd/Bike-Rental-Demand/actions/runs/38612696294). Both analysis pipelines reproduce the notebook metrics; all six figures were visually inspected. Independent read-only review found no actionable defects. Runtime pins still match after installing optional plotting dependencies.
