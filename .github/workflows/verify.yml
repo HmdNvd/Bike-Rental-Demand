@@ -1,0 +1,38 @@
+name: Verify model and Linux deployment
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  container:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      - name: Build the production image
+        run: docker build -t spoke:test .
+      - name: Verify model and API in Linux
+        run: >-
+          docker run --rm
+          -v "${{ github.workspace }}/data:/app/data:ro"
+          -v "${{ github.workspace }}/tests:/app/tests:ro"
+          spoke:test python -m pytest tests/test_prediction.py -q
+      - name: Start the complete prediction app
+        run: docker run -d --name spoke-test -p 8000:8000 spoke:test
+      - name: Verify health, frontend and real inference
+        shell: bash
+        run: |
+          for attempt in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:8000/api/health; then break; fi
+            sleep 2
+          done
+          curl -fsS http://127.0.0.1:8000/ | grep 'Spoke'
+          curl -fsS http://127.0.0.1:8000/api/health | python -c 'import sys,json; assert json.load(sys.stdin)["status"] == "ok"'
+          curl -fsS -X POST http://127.0.0.1:8000/api/predict -H 'Content-Type: application/json' \
+            -d '{"date":"2012-09-14","hour":8,"season":3,"weather":1,"temperature_c":24,"humidity":55,"wind_kmh":12,"holiday":false,"baseline_year":2012}' \
+            | python -c 'import sys,json; r=json.load(sys.stdin); assert r["rentals"] == 524; assert len(r["profile"]) == 24; print("Production prediction:", r["rentals"])'
+      - name: Container logs
+        if: always()
+        run: docker logs spoke-test || true

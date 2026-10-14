@@ -1,0 +1,10 @@
+# Documentation and notebook analysis dependencies; not required by the server.
+-r requirements.txt
+matplotlib==3.10.8
+seaborn==0.13.2
+contourpy==1.4.0
+cycler==0.12.1
+fonttools==4.67.0
+kiwisolver==1.5.1
+pillow==12.3.0
+pyparsing==3.3.3

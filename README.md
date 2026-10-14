@@ -4,6 +4,23 @@ A minimal web app for **Phase 7: Make Predictions Using the Trained Model**. Ent
 
 The original `Bike_Rental_Demand_Project.ipynb` is preserved. This application deploys its **final Ridge(alpha=10.0) model**, rather than the earlier log-target linear regression.
 
+![Spoke prediction interface; local Phase 7 screenshot](submission/screenshots/01-application-ui.png)
+
+**[Complete ML project report](docs/PROJECT_REPORT.md)** · **[Deployment guide](docs/DEPLOYMENT.md)** · **[Phase 8 submission status](submission/PHASE_8.md)**
+
+## Project overview
+
+The UCI hourly Bike Sharing dataset contains 17,379 observations from Washington, D.C. in 2011–2012. The workflow covers data quality checks, exploratory analysis, feature engineering, chronological training, regression evaluation and a real prediction interface.
+
+| Model | MAE | RMSE | R² |
+|---|---:|---:|---:|
+| Initial linear regression with log target | 125.74 | 186.88 | 0.2816 |
+| Final Ridge with hour indicators and rush-hour interaction | **88.92** | **117.95** | **0.7138** |
+
+The final model is evaluated on the last 3,476 records. This period was also used during approach refinement; independent future-period validation remains future work. The report includes the dataset dictionary, leakage prevention, six EDA/evaluation figures, actual prediction errors and historical-model limitations.
+
+Public hosting is being prepared using Render's free Docker service. The [Phase 8 status](submission/PHASE_8.md) records verified deployment evidence; the screenshot above is local evidence.
+
 ## Run on Windows
 
 The environment, saved model, and production frontend have been prepared in this folder. Open PowerShell here and run:
@@ -85,6 +102,15 @@ From the project root:
 ```
 
 The script uses the cached CSV when present. To download a fresh copy, move the cached CSV aside first. Only load trusted joblib files; the app does not accept model uploads.
+
+To reproduce the EDA, both model results, report figures and the complete held-out prediction table:
+
+```powershell
+.venv\Scripts\python.exe -m pip install -r requirements-analysis.txt
+.venv\Scripts\python.exe scripts\analyze_project.py
+```
+
+Outputs are written to `docs/figures/`, `docs/analysis-results.json` and `docs/test-predictions.csv`. The preserved notebook includes an extraneous `a` expression in the exploratory baseline cell; use the scripts above for a clean run-from-start workflow.
 
 Build the frontend:
 

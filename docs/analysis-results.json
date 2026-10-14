@@ -1,0 +1,169 @@
+{
+  "rows": 17379,
+  "columns": 17,
+  "missing_values": 0,
+  "duplicate_rows": 0,
+  "date_start": "2011-01-01",
+  "date_end": "2012-12-31",
+  "target": {
+    "mean": 189.46308763450142,
+    "median": 142.0,
+    "min": 1,
+    "max": 977
+  },
+  "weather": {
+    "Clear": {
+      "mean": 204.8692718829405,
+      "count": 11413
+    },
+    "Mist / cloudy": {
+      "mean": 175.16549295774647,
+      "count": 4544
+    },
+    "Light rain / snow": {
+      "mean": 111.57928118393235,
+      "count": 1419
+    },
+    "Heavy weather": {
+      "mean": 74.33333333333333,
+      "count": 3
+    }
+  },
+  "season": {
+    "Winter": {
+      "mean": 111.11456859971712,
+      "count": 4242
+    },
+    "Spring": {
+      "mean": 208.34406894987526,
+      "count": 4409
+    },
+    "Summer": {
+      "mean": 236.01623665480426,
+      "count": 4496
+    },
+    "Fall": {
+      "mean": 198.86885633270322,
+      "count": 4232
+    }
+  },
+  "hourly_mean": {
+    "0": {
+      "workingday": 36.78629032258065,
+      "nonworkingday": 90.8
+    },
+    "1": {
+      "workingday": 16.55263157894737,
+      "nonworkingday": 69.50869565217391
+    },
+    "2": {
+      "workingday": 8.683778234086242,
+      "nonworkingday": 53.171052631578945
+    },
+    "3": {
+      "workingday": 4.9425531914893615,
+      "nonworkingday": 25.77533039647577
+    },
+    "4": {
+      "workingday": 5.4297872340425535,
+      "nonworkingday": 8.26431718061674
+    },
+    "5": {
+      "workingday": 24.913131313131313,
+      "nonworkingday": 8.68918918918919
+    },
+    "6": {
+      "workingday": 102.5,
+      "nonworkingday": 18.74235807860262
+    },
+    "7": {
+      "workingday": 290.61290322580646,
+      "nonworkingday": 43.40692640692641
+    },
+    "8": {
+      "workingday": 477.00604838709677,
+      "nonworkingday": 105.65367965367966
+    },
+    "9": {
+      "workingday": 241.51814516129033,
+      "nonworkingday": 171.62337662337663
+    },
+    "10": {
+      "workingday": 135.36693548387098,
+      "nonworkingday": 255.9090909090909
+    },
+    "11": {
+      "workingday": 158.2298387096774,
+      "nonworkingday": 315.31601731601734
+    },
+    "12": {
+      "workingday": 200.8209255533199,
+      "nonworkingday": 366.2597402597403
+    },
+    "13": {
+      "workingday": 198.429718875502,
+      "nonworkingday": 372.73160173160176
+    },
+    "14": {
+      "workingday": 183.5722891566265,
+      "nonworkingday": 364.64502164502164
+    },
+    "15": {
+      "workingday": 201.33132530120483,
+      "nonworkingday": 358.8138528138528
+    },
+    "16": {
+      "workingday": 293.12224448897797,
+      "nonworkingday": 352.72727272727275
+    },
+    "17": {
+      "workingday": 525.2905811623247,
+      "nonworkingday": 323.54978354978357
+    },
+    "18": {
+      "workingday": 492.2269076305221,
+      "nonworkingday": 281.05652173913046
+    },
+    "19": {
+      "workingday": 348.4016064257028,
+      "nonworkingday": 231.67391304347825
+    },
+    "20": {
+      "workingday": 249.71887550200802,
+      "nonworkingday": 174.7391304347826
+    },
+    "21": {
+      "workingday": 186.2871485943775,
+      "nonworkingday": 142.0608695652174
+    },
+    "22": {
+      "workingday": 138.38955823293173,
+      "nonworkingday": 116.06086956521739
+    },
+    "23": {
+      "workingday": 88.70883534136546,
+      "nonworkingday": 85.9304347826087
+    }
+  },
+  "temperature_target_correlation": 0.4047722757786589,
+  "linear_reproduced": {
+    "mae": 125.74216094557366,
+    "mse": 34923.54879469738,
+    "rmse": 186.8784331984228,
+    "r2": 0.28160882071967386
+  },
+  "ridge": {
+    "mae": 88.91944764199634,
+    "mse": 13911.680650929306,
+    "rmse": 117.94778781702226,
+    "r2": 0.7138312395643526
+  },
+  "linear_notebook_reported": {
+    "mae": 125.74,
+    "mse": 34923.55,
+    "rmse": 186.88,
+    "r2": 0.2816
+  },
+  "test_first_datetime": "2012-08-07 12:00",
+  "training_last_datetime": "2012-08-07 11:00"
+}

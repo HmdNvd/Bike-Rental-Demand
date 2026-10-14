@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: spoke-bike-demand
+    runtime: docker
+    plan: free
+    branch: main
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHONUNBUFFERED
+        value: "1"
