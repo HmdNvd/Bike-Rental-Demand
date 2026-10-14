@@ -20,6 +20,14 @@ Streamlit.events.addEventListener(Streamlit.RENDER_EVENT, event => {
 Streamlit.setComponentReady();
 Streamlit.setFrameHeight(1100);
 document.documentElement.classList.add('streamlit-embedded');
+function syncHostViewport() {
+  let height = Math.min(window.screen.availHeight, 800);
+  try { height = window.parent.innerHeight; } catch { /* Cross-origin embedding uses a conservative height. */ }
+  document.documentElement.style.setProperty('--host-viewport-height', `${height}px`);
+}
+syncHostViewport();
+window.addEventListener('resize', syncHostViewport);
+try { window.parent.addEventListener('resize', syncHostViewport); } catch { /* Optional when embedded across origins. */ }
 new ResizeObserver(() => {
   requestAnimationFrame(() => Streamlit.setFrameHeight(Math.ceil(document.body.getBoundingClientRect().height)));
 }).observe(document.body);

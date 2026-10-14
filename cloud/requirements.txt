@@ -1,2 +1,4 @@
 -r ../requirements.txt
 streamlit==1.65.0
+# Match Community Cloud's safe Arrow version instead of its automatic downgrade.
+pyarrow==24.0.0
