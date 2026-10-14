@@ -7,7 +7,7 @@
 - Six reproducible analysis/evaluation figures: [report figures](../docs/figures/).
 - Analysis data: [summary statistics and metrics](../docs/analysis-results.json), [all held-out predictions](../docs/test-predictions.csv).
 - Reproduction: `scripts/prepare_model.py`, `scripts/analyze_project.py`, pinned runtime requirements, analysis requirements and npm lockfile.
-- Hosting: [Render deployment guide](../docs/DEPLOYMENT.md), `render.yaml`, production `Dockerfile`.
+- Hosting: [deployment guide](../docs/DEPLOYMENT.md), Community Cloud adapter (`cloud/streamlit_app.py`), and optional Render/Docker configuration.
 - Linux verification workflow: `.github/workflows/verify.yml`.
 
 ## Deployment package verification
@@ -16,7 +16,7 @@ Commit `29217814c624c63077906666944a93de01cccca6` passed the [GitHub Actions Lin
 
 ## Current live-deployment status
 
-**Pending account setup and an actual successful deployment.** No public demo URL or final deployed prediction screenshot has been verified yet. This status will be updated after the account owner completes Render sign-in/authorization and the service builds and passes live acceptance checks.
+**Deployment in progress on Streamlit Community Cloud.** Render stopped at a card-verification prompt despite the selected free plan; the owner chose a host without card verification. The Community Cloud adapter has passed eight local model/adapter tests and browser prediction checks. No public demo URL or final deployed screenshot has been verified yet; these will be recorded after the hosted app passes acceptance checks.
 
 The existing Phase 7 screenshots demonstrate local operation; they are not the final live-deployment proof requested for Phase 8.
 

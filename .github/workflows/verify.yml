@@ -18,7 +18,8 @@ jobs:
           docker run --rm
           -v "${{ github.workspace }}/data:/app/data:ro"
           -v "${{ github.workspace }}/tests:/app/tests:ro"
-          spoke:test python -m pytest tests/test_prediction.py -q
+          -v "${{ github.workspace }}/cloud:/app/cloud:ro"
+          spoke:test python -m pytest tests/test_prediction.py tests/test_cloud_bridge.py -q
       - name: Start the complete prediction app
         run: docker run -d --name spoke-test -p 8000:8000 spoke:test
       - name: Verify health, frontend and real inference

@@ -19,7 +19,7 @@ The UCI hourly Bike Sharing dataset contains 17,379 observations from Washington
 
 The final model is evaluated on the last 3,476 records. This period was also used during approach refinement; independent future-period validation remains future work. The report includes the dataset dictionary, leakage prevention, six EDA/evaluation figures, actual prediction errors and historical-model limitations.
 
-Public hosting is being prepared using Render's free Docker service. The [Phase 8 status](submission/PHASE_8.md) records verified deployment evidence; the screenshot above is local evidence.
+Public hosting is being prepared on Streamlit Community Cloud after Render requested card verification. The React interface and saved Python model are preserved through a small hosting adapter; the FastAPI/Docker version remains available. The [Phase 8 status](submission/PHASE_8.md) records verified deployment evidence; the screenshot above is local evidence.
 
 ## Run on Windows
 
@@ -155,6 +155,10 @@ Example request:
 ```
 
 ## Deploy as one container
+
+For the free Community Cloud deployment, use `cloud/streamlit_app.py` with Python 3.13 and `cloud/requirements.txt`. See the [deployment guide](docs/DEPLOYMENT.md). Its component uses the same Python predictor and does not require a separate API server. The prebuilt React component in `cloud/frontend/` is regenerated with `npm.cmd run build:cloud` from `frontend` after UI changes.
+
+For a standalone FastAPI deployment, use the Docker container:
 
 ```sh
 docker build -t spoke .

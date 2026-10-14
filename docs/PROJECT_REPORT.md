@@ -10,7 +10,7 @@ Bike-sharing demand changes with commuting patterns, seasons and weather. This p
 
 The objective is to demonstrate a complete data science workflow: inspect and prepare historical data, investigate demand patterns, fit and compare models, evaluate numerical errors, and serve the final estimator through a working prediction interface. A potential use is exploring expected demand under different conditions; operational fleet planning would require newer data and stronger validation.
 
-The application, **Spoke**, uses React for user input and visualization and FastAPI for validation and Python inference. Users receive an hourly estimate, a constant-weather 24-hour what-if profile, and observed comparisons for selected held-out examples.
+The application, **Spoke**, uses React for user input and visualization. The standalone service uses FastAPI for validation and Python inference; a Streamlit Community Cloud adapter also runs the same Python predictor for free hosting. Users receive an hourly estimate, a constant-weather 24-hour what-if profile, and observed comparisons for selected held-out examples.
 
 ## 2. Dataset and provenance
 
@@ -185,6 +185,8 @@ The estimator is loaded once when FastAPI starts. Each request uses the saved mo
 
 The production container builds React with Node and serves the resulting static files through FastAPI, alongside the API. A single service and domain are sufficient; the application does not need MongoDB, user accounts or an external model API.
 
+For no-card hosting, the Community Cloud entry point `cloud/streamlit_app.py` renders that React interface as a bidirectional component. Component messages call the same validated Python prediction code through `cloud/bridge.py`. It changes the hosting transport, not the fitted model or preprocessing. The prebuilt component is versioned so the host needs only Python dependencies.
+
 ## 9. Reproduction instructions
 
 Requirements: Python 3.13, Node.js 22.12+ and Git. From a clean clone:
@@ -208,7 +210,7 @@ The Windows launcher checks pinned dependency versions, prepares missing artifac
 
 Numerical/API tests reconstruct features independently and compare predictions, including reference categories and rare weather. They check the reproduced metrics, scenario endpoints, invalid values, future-date warnings and unknown API routes. Browser checks exercise predictions, observed comparisons, CSV export, stale inputs, warnings, dialog behavior, failure recovery, keyboard interaction and mobile overflow.
 
-`render.yaml` defines a free Docker web service and `/api/health` as its health check. The Linux verification workflow builds the production image, runs the model tests inside it, starts the app, checks the frontend and confirms a known request returns 524 rentals. Refer to [the deployment guide](DEPLOYMENT.md) and [Phase 8 submission status](../submission/PHASE_8.md) for the actual verification and hosting state. Configuration alone is not evidence of a successful deployment.
+The Linux verification workflow builds the production image, runs the model tests inside it, starts the app, checks the frontend and confirms a known request returns 524 rentals. Two additional tests verify numerical parity and validation errors through the Community Cloud bridge. `render.yaml` retains the optional Docker configuration, but this account's Render deployment stopped at card verification; the owner chose Community Cloud instead. Refer to [the deployment guide](DEPLOYMENT.md) and [Phase 8 submission status](../submission/PHASE_8.md) for the actual verification and hosting state. Configuration alone is not evidence of a successful deployment.
 
 ## 11. Limitations and next work
 

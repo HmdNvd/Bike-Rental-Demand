@@ -14,8 +14,10 @@ const hourLabel = hour => `${String(hour).padStart(2, '0')}:00`;
 const formatDate = date => new Date(`${date}T12:00:00`).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 const number = value => Number(value.toFixed(1)).toString();
 const same = (a, b) => Object.keys(INITIAL).every(key => a?.[key] === b?.[key]);
+const IS_STREAMLIT = import.meta.env.MODE === 'streamlit';
 
 async function api(path, options = {}) {
+  if (IS_STREAMLIT) return (await import('./streamlitTransport')).cloudApi(path, options);
   const response = await fetch(`/api/${path}`, options);
   if (!response.ok) {
     let body;
@@ -116,7 +118,7 @@ function App() {
 
   return <>
     <header className="header"><div className="header-inner">
-      <a className="brand" href="/" aria-label="Spoke home"><Bike size={48} strokeWidth={1.35} /><div><span>Spoke</span><small>Bike demand studio</small></div></a>
+      <a className="brand" href={IS_STREAMLIT ? '#forecast' : '/'} aria-label="Spoke home"><Bike size={48} strokeWidth={1.35} /><div><span>Spoke</span><small>Bike demand studio</small></div></a>
       <nav aria-label="Main navigation"><a className="nav-active" href="#forecast">Forecast</a><button onClick={() => dialogRef.current.showModal()}>Model notes</button><span className="phase">Phase 07</span></nav>
     </div></header>
     <main>

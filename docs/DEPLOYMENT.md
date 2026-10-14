@@ -1,4 +1,36 @@
-# Deploy Spoke on Render
+# Deploy Spoke
+
+## Primary option: Streamlit Community Cloud
+
+Render requested a payment-card verification for this account despite the selected free plan. The owner chose a host without card verification. The primary deployment now uses [Streamlit Community Cloud](https://docs.streamlit.io/deploy/streamlit-community-cloud), which hosts Python apps for free.
+
+The existing React interface is built as a bidirectional Streamlit component. Inputs travel to the same Python `Predictor` through `cloud/bridge.py`; the saved estimator, validation, feature order and outputs are unchanged. FastAPI/Docker remains a supported standalone deployment option. The Community Cloud version uses Streamlit component messages rather than exposing the standalone `/api/*` routes.
+
+Create an app from the GitHub repository using:
+
+| Setting | Value |
+|---|---|
+| Repository | `HmdNvd/Bike-Rental-Demand` |
+| Branch | `main` |
+| Main file | `cloud/streamlit_app.py` |
+| Python version | 3.13 |
+| Dependencies | `cloud/requirements.txt` (includes the pinned base requirements) |
+| App visibility | Public for a shareable demo; GitHub source can remain private |
+
+Streamlit must be authorized to read the private repository. The owner reviews GitHub's permission prompts. Use the actual URL assigned by the deployment dashboard and verify predictions before recording it as live.
+
+The prebuilt component is committed under `cloud/frontend/` because Community Cloud installs Python dependencies rather than running the project's Node build. After UI edits, rebuild it with `npm.cmd run build:cloud` inside `frontend`, and commit source plus generated component files together.
+
+For local verification:
+
+```powershell
+.venv\Scripts\python.exe -m pip install -r cloud/requirements.txt
+.venv\Scripts\python.exe -m streamlit run cloud/streamlit_app.py
+```
+
+The original browser script below checks the standalone FastAPI transport. For the Streamlit deployment, interact with the `streamlit_app.spoke_studio` iframe and check the same numerical values, edited-input handling, model notes, CSV export and mobile layout. Do not expect `/api/health` on a Streamlit deployment; its platform health route is `/_stcore/health`.
+
+## Alternative: Render Docker deployment
 
 ## Architecture and cost choice
 
