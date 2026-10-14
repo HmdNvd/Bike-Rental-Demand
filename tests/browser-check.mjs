@@ -3,7 +3,10 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import assert from 'node:assert/strict';
 
-const output = fileURLToPath(new URL('../submission/screenshots/', import.meta.url));
+const baseUrl = process.env.SPOKE_BASE_URL || 'http://127.0.0.1:8000';
+const parsedUrl = new URL(baseUrl);
+if (!['http:', 'https:'].includes(parsedUrl.protocol)) throw new Error('SPOKE_BASE_URL must be an HTTP(S) application URL');
+const output = process.env.SPOKE_PROOF_DIR || fileURLToPath(new URL('../submission/screenshots/', import.meta.url));
 await mkdir(output, { recursive: true });
 const browser = await chromium.launch({ headless: true });
 const context = await browser.newContext({ viewport: { width: 1440, height: 1000 }, deviceScaleFactor: 1, reducedMotion: 'reduce' });
@@ -19,7 +22,7 @@ async function ready() {
 }
 
 try {
-  await page.goto('http://127.0.0.1:8000', { waitUntil: 'networkidle' });
+  await page.goto(baseUrl, { waitUntil: 'networkidle', timeout: 120000 });
   assert.equal(await page.title(), 'Spoke — Bike demand studio');
   await ready();
   await page.getByRole('heading', { name: 'Predict the next ride.' }).waitFor();
@@ -99,7 +102,7 @@ try {
   await ready();
   await page.getByText('View hourly values', { exact: true }).click();
   assert.equal(await page.locator('tbody tr').count(), 24);
-  await writeFile(`${output}/../scenario-results.json`, JSON.stringify({ scenarios, checks: ['Page identity', 'Nonblank app', 'No framework overlay', 'No unexpected console errors', 'Three real held-out predictions', 'CSV with 24 hours', 'Edited inputs marked stale', 'Holiday handling', 'Rare weather warning', 'Historical baseline warning', 'Accessible model dialog', 'Service failure and recovery', 'Mobile no overflow', 'Keyboard slider', '24-hour data table'], browser: 'Playwright Chromium', viewports: ['1440×1000', '390×844'] }, null, 2));
+  await writeFile(`${output}/../scenario-results.json`, JSON.stringify({ url: page.url(), scenarios, checks: ['Page identity', 'Nonblank app', 'No framework overlay', 'No unexpected console errors', 'Three real held-out predictions', 'CSV with 24 hours', 'Edited inputs marked stale', 'Holiday handling', 'Rare weather warning', 'Historical baseline warning', 'Accessible model dialog', 'Service failure and recovery', 'Mobile no overflow', 'Keyboard slider', '24-hour data table'], browser: 'Playwright Chromium', viewports: ['1440×1000', '390×844'] }, null, 2));
   console.log(JSON.stringify({ status: 'passed', screenshots: 7, predictions: scenarios.map(s => ({ name: s.name, rentals: s.rentals, comparison: s.comparison })), unexpectedErrors }, null, 2));
 } finally {
   await browser.close();

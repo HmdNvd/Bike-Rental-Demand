@@ -54,6 +54,17 @@ Capture the deployed site after a successful prediction, with the browser addres
 
 The Phase 7 screenshots are local evidence and must not be relabeled as public-deployment proof.
 
+The existing browser check supports a separate public URL and proof directory. From PowerShell, after replacing the URL with the exact dashboard URL:
+
+```powershell
+$env:SPOKE_BASE_URL = 'https://YOUR-VERIFIED-SERVICE.onrender.com'
+$env:SPOKE_PROOF_DIR = (Join-Path (Get-Location) 'submission/live/screenshots')
+node tests/browser-check.mjs
+Remove-Item Env:SPOKE_BASE_URL, Env:SPOKE_PROOF_DIR
+```
+
+This writes live screenshots, scenario responses recording the actual page URL, and a sample CSV to `submission/live/`, preserving the local Phase 7 proof. The URL above is an instruction placeholder, not a deployed address. Allow the free service to wake up before running the checks.
+
 ## Free hosting behavior
 
 Render's free web services sleep after 15 minutes with no inbound traffic. A later visit wakes the service, which can take about a minute. Open the demo before presenting it and allow startup to finish. Monthly usage/build limits apply. The saved model is included in the image, so restarting does not require retraining or persistent local storage. No keep-alive monitor is needed for this submission.
