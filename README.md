@@ -1,10 +1,12 @@
 # Spoke — Bike demand studio
 
-A minimal web app for **Phase 7: Make Predictions Using the Trained Model**. Enter weather and time conditions, predict total bike rentals for one hour, and compare real unseen examples with observed demand.
+A deployed machine learning project for **Phases 7–8: Prediction, Documentation and Deployment**. Enter weather and time conditions, predict total bike rentals for one hour, and compare real unseen examples with observed demand.
 
 The original `Bike_Rental_Demand_Project.ipynb` is preserved. This application deploys its **final Ridge(alpha=10.0) model**, rather than the earlier log-target linear regression.
 
-![Spoke prediction interface; local Phase 7 screenshot](submission/screenshots/01-application-ui.png)
+**[Open the live prediction app](https://spoke-bike-demand.streamlit.app/)**
+
+![Spoke live prediction: 524 rentals per hour](submission/live/screenshots/01-final-prediction.png)
 
 **[Complete ML project report](docs/PROJECT_REPORT.md)** · **[Deployment guide](docs/DEPLOYMENT.md)** · **[Phase 8 submission status](submission/PHASE_8.md)**
 
@@ -19,7 +21,7 @@ The UCI hourly Bike Sharing dataset contains 17,379 observations from Washington
 
 The final model is evaluated on the last 3,476 records. This period was also used during approach refinement; independent future-period validation remains future work. The report includes the dataset dictionary, leakage prevention, six EDA/evaluation figures, actual prediction errors and historical-model limitations.
 
-Public hosting is being prepared on Streamlit Community Cloud after Render requested card verification. The React interface and saved Python model are preserved through a small hosting adapter; the FastAPI/Docker version remains available. The [Phase 8 status](submission/PHASE_8.md) records verified deployment evidence; the screenshot above is local evidence.
+The app is publicly deployed on Streamlit Community Cloud. Its React interface uses the saved Python model through a small hosting adapter; the FastAPI/Docker version remains available. The [Phase 8 submission](submission/PHASE_8.md) includes live screenshots and verified test scenarios. The source repository remains private.
 
 ## Run on Windows
 
@@ -97,7 +99,7 @@ start.ps1                       Windows launcher
 From the project root:
 
 ```powershell
-.venv\Scripts\python.exe -m pytest tests\test_prediction.py -q
+.venv\Scripts\python.exe -m pytest tests\test_prediction.py tests\test_cloud_bridge.py -q
 .venv\Scripts\python.exe scripts\prepare_model.py
 ```
 
@@ -165,7 +167,7 @@ docker build -t spoke .
 docker run --rm -p 8000:8000 spoke
 ```
 
-The container serves the React build and API on the same origin, runs as a non-root user, and includes the saved model. It accepts the host's `PORT` environment variable. Any container host can use this Dockerfile; route public traffic to that port and use `/api/health` as the health check. No API key or database is required. The production image passed [Linux build and runtime verification on GitHub Actions](https://github.com/HmdNvd/Bike-Rental-Demand/actions/runs/38612696294), including all six model/API tests and a known prediction. See the [Phase 8 status](submission/PHASE_8.md) for public hosting progress.
+The container serves the React build and API on the same origin, runs as a non-root user, and includes the saved model. It accepts the host's `PORT` environment variable. Any container host can use this Dockerfile; route public traffic to that port and use `/api/health` as the health check. No API key or database is required. The production image passed [Linux build and runtime verification on GitHub Actions](https://github.com/HmdNvd/Bike-Rental-Demand/actions/runs/38615816984), including all eight model/API/adapter tests and a known prediction. See the [Phase 8 status](submission/PHASE_8.md) for live deployment evidence.
 
 ## Submission
 

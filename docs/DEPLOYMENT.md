@@ -1,6 +1,8 @@
 # Deploy Spoke
 
-## Primary option: Streamlit Community Cloud
+## Live deployment: Streamlit Community Cloud
+
+**Public URL: [spoke-bike-demand.streamlit.app](https://spoke-bike-demand.streamlit.app/)**. The deployed interface returned 524 for the documented default and 499/204/282 for the three evaluation scenarios. [Final screenshots and verification](../submission/PHASE_8.md).
 
 Render requested a payment-card verification for this account despite the selected free plan. The owner chose a host without card verification. The primary deployment now uses [Streamlit Community Cloud](https://docs.streamlit.io/deploy/streamlit-community-cloud), which hosts Python apps for free.
 
@@ -17,7 +19,7 @@ Create an app from the GitHub repository using:
 | Dependencies | `cloud/requirements.txt` (includes the pinned base requirements) |
 | App visibility | Public for a shareable demo; GitHub source can remain private |
 
-Streamlit must be authorized to read the private repository. The owner reviews GitHub's permission prompts. Use the actual URL assigned by the deployment dashboard and verify predictions before recording it as live.
+Streamlit must be authorized to read the private repository. The owner reviews GitHub's permission prompts. This project is deployed at the verified URL above; its public sharing option is enabled while GitHub source remains private.
 
 The prebuilt component is committed under `cloud/frontend/` because Community Cloud installs Python dependencies rather than running the project's Node build. After UI edits, rebuild it with `npm.cmd run build:cloud` inside `frontend`, and commit source plus generated component files together.
 
@@ -82,7 +84,7 @@ The known default request is documented in the main README. Use exactly those va
 
 ## Screenshot evidence and submission
 
-Capture the deployed site after a successful prediction, with the browser address bar showing the public URL. Include the input controls and numerical prediction in the same view. Keep additional scenario and mobile screenshots if useful. Store final proof under `submission/screenshots/phase8/`, then record the verified URL, commit and evidence paths in `submission/PHASE_8.md` and link the demo from the README.
+Capture the deployed site after a successful prediction and record the verified public URL alongside it. Browser address-bar chrome is useful when available; do not fabricate it. Include the input controls and numerical prediction in the same view. Keep additional scenario and mobile screenshots if useful. Store final proof under `submission/live/screenshots/`, then record the verified URL, commit and evidence paths in `submission/PHASE_8.md` and link the demo from the README.
 
 The Phase 7 screenshots are local evidence and must not be relabeled as public-deployment proof.
 

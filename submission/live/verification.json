@@ -1,0 +1,47 @@
+{
+  "url": "https://spoke-bike-demand.streamlit.app/",
+  "recorded_at_utc": "2026-10-14T18:44:47.067Z",
+  "hosting": "Streamlit Community Cloud",
+  "python": "3.13",
+  "tested_application_commit": "80a0045da95d6e7e90555d93ac8fb06165cc45fb",
+  "public_sharing_enabled": true,
+  "source_repository_visibility": "private",
+  "default_prediction": 524,
+  "scenarios": [
+    {
+      "name": "Morning commute",
+      "predicted": 499,
+      "observed": 698,
+      "absolute_error": 198.9
+    },
+    {
+      "name": "Rainy afternoon",
+      "predicted": 204,
+      "observed": 36,
+      "absolute_error": 168.3
+    },
+    {
+      "name": "Weekend evening",
+      "predicted": 282,
+      "observed": 465,
+      "absolute_error": 183.1
+    }
+  ],
+  "live_checks": {
+    "hourly_profile_rows": 24,
+    "edited_input_marks_stale": true,
+    "stale_export_disabled": true,
+    "edited_weekend_hour18_prediction": 379,
+    "model_notes_open_close": true,
+    "captured_console_errors": 0
+  },
+  "limits": {
+    "hosted_csv_download": "Triggered; automated download-event capture timed out. Receipt not verified.",
+    "responsive": "Mobile dialog verified locally. Hosted viewport override did not produce a confirmed mobile capture."
+  },
+  "linux_ci": {
+    "url": "https://github.com/HmdNvd/Bike-Rental-Demand/actions/runs/38615816984",
+    "conclusion": "success",
+    "tests": 8
+  }
+}

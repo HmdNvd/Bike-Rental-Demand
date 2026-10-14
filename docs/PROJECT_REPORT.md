@@ -198,7 +198,7 @@ python -m venv .venv
 .venv\Scripts\python.exe -m pip install -r requirements-analysis.txt
 .venv\Scripts\python.exe scripts\prepare_model.py
 .venv\Scripts\python.exe scripts\analyze_project.py
-.venv\Scripts\python.exe -m pytest tests\test_prediction.py -q
+.venv\Scripts\python.exe -m pytest tests\test_prediction.py tests\test_cloud_bridge.py -q
 powershell -ExecutionPolicy Bypass -File .\start.ps1
 ```
 
@@ -226,7 +226,7 @@ Recommended next experiments are train-only EDA and rolling temporal validation,
 
 ## 12. Final result
 
-The project connects the original data analysis to a fitted and persisted Ridge estimator, a validated Python prediction API, and a responsive interface. The reported final results are MAE **88.9194**, RMSE **117.9478** and R² **0.713831**. Source code, raw data, model artifacts, figures, prediction examples, reproduction scripts and deployment configuration are versioned together. Live hosting and its final screenshot are tracked separately so the submission does not confuse a local demonstration with a deployed application.
+The project connects the original data analysis to a fitted and persisted Ridge estimator, a validated Python prediction API, and a responsive interface. The reported final results are MAE **88.9194**, RMSE **117.9478** and R² **0.713831**. Source code, raw data, model artifacts, figures, prediction examples, reproduction scripts and deployment configuration are versioned together. The public app is available at [spoke-bike-demand.streamlit.app](https://spoke-bike-demand.streamlit.app/). The [Phase 8 submission](../submission/PHASE_8.md) contains screenshots captured from that deployment and the verified prediction results.
 
 ## References
 
